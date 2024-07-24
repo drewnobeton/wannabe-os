@@ -20,7 +20,7 @@
             <nav>
                 <ul>
                     {% for article in site.articles %}
-                    <li><a href="#{{ article.slug }}" data-article="{{ article.url }}"><span>{{ article.title }}</span></a></li>
+                    <li><a href="{{ article.url }}"><span>{{ article.title }}</span></a></li>
                     {% endfor %}
                 </ul>
             </nav>

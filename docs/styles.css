@@ -1,0 +1,181 @@
+body, h1, h2, h3 {
+    font-family: 'Manrope', 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+}
+.article-content {
+    font-family: 'Manrope', 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+}
+body {
+    background-color: #c0c0c0; /* Windows 95 gray background */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make the body take full height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    background-color: #000080; /* Dark blue header */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Default to row layout */
+    flex: 1; /* Take remaining space in the body */
+    overflow: hidden; /* Prevent container from overflowing */
+}
+
+.menu {
+    background-color: #808080; /* Gray background for menu */
+    width: 200px; /* Fixed width for desktop */
+    padding: 10px;
+    box-shadow: 2px 2px 5px #808080;
+    margin: 10px;
+    border: 2px solid #000000;
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative;
+}
+
+.menu h2 {
+    background-color: #000080;
+    color: white;
+    padding: 5px;
+    margin: -10px -10px 10px -10px;
+    text-align: center;
+}
+
+.menu nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu nav ul li {
+    margin: 10px 0;
+    position: relative;
+}
+
+.menu nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #000080;
+    border: 2px outset #000080;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/*turned off for now*/
+.menu nav ul li a span {
+    display: inline-block;
+    white-space: nowrap; /* Ensure text stays on one line */
+    animation-name: scroll-left;
+    animation-duration: 3s;
+    animation-iteration-count: 0;
+    animation-play-state:running;
+    animation-timing-function: linear;
+}
+
+.menu nav ul li a:hover span {
+    animation-play-state:paused;
+
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.article {
+    position: relative;
+    width: 70%; /* Default width */
+    height: 0; /* Start with zero height */
+    margin: 10px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    box-shadow: 2px 2px 5px #808080;
+    overflow: hidden; /* Hide overflow to manage scaling */
+    transform-origin: top left; /* Ensure the expansion starts from the top left */
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* Start as hidden */
+}
+
+.article.expanded {
+    width: 90%; /* Expanded width for mobile */
+    height: calc(100vh - 80px); /* Adjust height for mobile */
+    opacity: 1; /* Fade in effect */
+}
+
+.article-content {
+    height: 100%; /* Full height of the article box */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.article .title-bar {
+    background-color: #000080;
+    color: white;
+    padding: 5px;
+    margin: -20px -20px 10px -20px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    font-size: 0.8em; /* Smaller title bar */
+}
+
+footer {
+    background-color: #808080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid #ffffff;
+    position: relative;
+    width: 100%;
+}
+
+/* Media Queries for Mobile Devices or Portrait Mode */
+@media screen and (max-width: 600px), (orientation: portrait) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        justify-content: flex-start; /* Align items at the start vertically */
+    }
+
+    .menu {
+        width: 90%; /* Full width of the container on small screens */
+        max-width: 600px; /* Max width for larger screens */
+        margin: 10px 0; /* Margin to separate from the header and article */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article {
+        width: 90%; /* Expand to fit mobile screens */
+        max-width: 600px; /* Max width for larger screens */
+        height: calc(100vh - 80px); /* Adjust height to fit the viewport minus some margins */
+        margin: 10px 0; /* Margin to separate items */
+        opacity: 1; /* Ensure it's visible */
+    }
+}

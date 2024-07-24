@@ -1,1 +1,41 @@
-hello
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="fonts/font.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>WannabeOS stuff</h1>
+    </header>
+    <div class="container">
+        <aside class="menu">
+            <h2>Menu</h2>
+            <nav>
+                <ul>
+                    {% for article in site.articles %}
+                    <li><a href="#{{ article.slug }}" data-article="{{ article.url }}"><span>{{ article.title }}</span></a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </aside>
+        <main class="article">
+            <div class="title-bar">
+                <h2>Select article from the menu</h2>
+            </div>
+            <div class="article-content">
+            <!-- Articles will be loaded here dynamically -->
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p> Thanks ChatGPT for saving my time and sanity by writing most of JavaScript and CSS for me.</p>
+    </footer>
+</body>
+</html>

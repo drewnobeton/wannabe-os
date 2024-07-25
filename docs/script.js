@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', async (event) => {
             event.preventDefault();
 
-            const articleUrl = link.getAttribute('data-article').slice(1);
+            const articleUrl = link.getAttribute('data-article');
 
             // Remove the expanded class to start the collapse animation
             if (currentArticle) {

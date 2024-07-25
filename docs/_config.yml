@@ -1,6 +1,6 @@
 title: WannabeOS Blog
 description: i write stuff about wannabeOS project in here
-url: "https://drewnobeton.github.io/wannabe-os"
+url: "https://drewnobeton.github.io/wannabe-os/"
 markdown: kramdown
 theme: minima
 plugins:

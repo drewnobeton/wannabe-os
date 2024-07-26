@@ -19,7 +19,8 @@
             <h2>Menu</h2>
             <nav>
                 <ul>
-                    {% for article in site.articles %}
+                    {% assign ordered_articles = site.articles | sort: "order_number" %}
+                    {% for article in ordered_articles %}
                     <li><a href="#{{ article.slug }}" data-article="{{ article.url }}"><span>{{ article.title }}</span></a></li>
                     {% endfor %}
                 </ul>

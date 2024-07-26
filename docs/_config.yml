@@ -9,4 +9,3 @@ plugins:
 collections:
   articles:
     output: true
-permalink: :collection/:name
